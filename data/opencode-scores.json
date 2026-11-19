@@ -1,0 +1,3606 @@
+{
+  "source": "OpenCode Data",
+  "sourceUrl": "https://opencode.ai/data/",
+  "fetchedAt": "2026-11-18T12:50:02.146Z",
+  "updatedAt": "2026-11-18T12:09:50.000Z",
+  "aspects": [
+    {
+      "key": "reasoning",
+      "label": "Reasoning"
+    },
+    {
+      "key": "coding",
+      "label": "Coding"
+    },
+    {
+      "key": "costEfficiency",
+      "label": "Cost efficiency"
+    },
+    {
+      "key": "contextWindow",
+      "label": "Context window"
+    },
+    {
+      "key": "multimodal",
+      "label": "Multimodal"
+    },
+    {
+      "key": "toolUse",
+      "label": "Tool use"
+    }
+  ],
+  "models": {
+    "deepseek-v4.1-flash": {
+      "path": "deepseek/deepseek-v4-1-flash-1017",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 53,
+        "coding": 100,
+        "costEfficiency": 58,
+        "contextWindow": 80,
+        "multimodal": 33,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [
+        {
+          "name": "Humanity's Last Exam",
+          "score": 42.6,
+          "variant": "without tools",
+          "dataset": "full set",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 44,
+          "variant": "without tools",
+          "dataset": "text-only subset",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 42.3,
+          "harness": "Claude Code",
+          "version": "4.0",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 77,
+          "harness": "Mini-SWE-V2",
+          "version": "1.1",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "ProgramBench",
+          "score": 29.1,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 68.2,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 60.5,
+          "version": "1.0.6",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "Agents' Last Exam",
+          "score": 35.4,
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "Apex Bench",
+          "score": 72.1,
+          "version": "1.1",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "Chartography",
+          "score": 83,
+          "variant": "with tools",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "BabyVision",
+          "score": 92.5,
+          "variant": "with tools",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "name": "ZeroBench",
+          "score": 51,
+          "metric": "pass@5",
+          "variant": "with tools",
+          "dataset": "main",
+          "source": "https://api-docs.deepseek.com/updates/"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 384000,
+        "inputModalities": [
+          "text",
+          "image"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-10-17"
+      },
+      "usage": {
+        "rankLastWeek": 11,
+        "tokens": 5552966327743,
+        "sharePercent": 0.37,
+        "uniqueUsers": 146840,
+        "sessions": 1619714,
+        "weeklyRetentionPercent": null,
+        "costPerSessionUsd": 0,
+        "cachedInputPercent": 95.8
+      }
+    },
+    "deepseek-v4-pro": {
+      "path": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 100,
+        "coding": 100,
+        "costEfficiency": 46,
+        "contextWindow": 80,
+        "multimodal": 0,
+        "toolUse": 68
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 80.6,
+          "metric": "resolved",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "Artificial Analysis Coding Agent Index",
+          "score": 50.1,
+          "metric": "average pass@1",
+          "harness": "Claude Code",
+          "variant": "high",
+          "source": "https://artificialanalysis.ai/agents/coding-agents"
+        },
+        {
+          "name": "SWE-Atlas Codebase QnA",
+          "score": 67.8,
+          "metric": "pass@1",
+          "harness": "Claude Code",
+          "variant": "high",
+          "source": "https://artificialanalysis.ai/agents/coding-agents"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 18,
+          "metric": "pass@1",
+          "harness": "Claude Code",
+          "variant": "high",
+          "dataset": "hard-aa",
+          "source": "https://artificialanalysis.ai/agents/coding-agents"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 64.7,
+          "metric": "pass@1",
+          "harness": "Claude Code",
+          "variant": "high",
+          "version": "2.1",
+          "source": "https://artificialanalysis.ai/agents/coding-agents"
+        },
+        {
+          "name": "MMLU-Pro",
+          "score": 87.5,
+          "metric": "EM",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "SimpleQA-Verified",
+          "score": 57.9,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "Chinese SimpleQA",
+          "score": 84.4,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 90.1,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 37.7,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort; without tools",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "LiveCodeBench",
+          "score": 93.5,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "Codeforces",
+          "score": 3206,
+          "metric": "rating",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "HMMT",
+          "score": 95.2,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "dataset": "February 2026",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "IMOAnswerBench",
+          "score": 89.8,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "MathArena Apex",
+          "score": 38.3,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "MathArena Apex Shortlist",
+          "score": 90.2,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "MRCR",
+          "score": 83.5,
+          "metric": "MMR",
+          "variant": "preview checkpoint; max effort",
+          "dataset": "1M context",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "CorpusQA",
+          "score": 62,
+          "metric": "accuracy",
+          "variant": "preview checkpoint; max effort",
+          "dataset": "1M context",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 67.9,
+          "metric": "accuracy",
+          "variant": "preview checkpoint; max effort",
+          "version": "2.0",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 55.4,
+          "metric": "resolved",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 76.2,
+          "metric": "resolved",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 83.4,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 48.2,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort; with tools",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 73.6,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "dataset": "public",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "GDPval-AA",
+          "score": 1554,
+          "metric": "Elo",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        },
+        {
+          "name": "Toolathlon",
+          "score": 51.8,
+          "metric": "pass@1",
+          "variant": "preview checkpoint; max effort",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 384000,
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-04-24"
+      },
+      "usage": {
+        "rankLastWeek": 12,
+        "tokens": 6046493690476,
+        "sharePercent": 0.4,
+        "uniqueUsers": 406945,
+        "sessions": 1738234,
+        "weeklyRetentionPercent": 65.4,
+        "costPerSessionUsd": 0.2201,
+        "cachedInputPercent": 97
+      }
+    },
+    "glm-5.2": {
+      "path": "zhipuai/glm-5-2",
+      "name": "GLM-5.2",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 100,
+        "coding": 100,
+        "costEfficiency": 31,
+        "contextWindow": 80,
+        "multimodal": 0,
+        "toolUse": 88
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 62.1,
+          "metric": "resolve rate",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 82.7,
+          "metric": "success rate",
+          "harness": "Claude Code",
+          "version": "2.1",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "FrontierSWE",
+          "score": 74.4,
+          "metric": "dominance",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 40.5,
+          "metric": "accuracy",
+          "dataset": "text-only subset",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 54.7,
+          "metric": "accuracy",
+          "variant": "with tools",
+          "dataset": "text-only subset",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "CritPt",
+          "score": 20.9,
+          "metric": "accuracy",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "AIME",
+          "score": 99.2,
+          "metric": "accuracy",
+          "version": "2026",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "HMMT",
+          "score": 94.4,
+          "metric": "accuracy",
+          "version": "November 2025",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "HMMT",
+          "score": 92.5,
+          "metric": "accuracy",
+          "version": "February 2026",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "IMOAnswerBench",
+          "score": 91,
+          "metric": "accuracy",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 91.2,
+          "metric": "accuracy",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 48.9,
+          "metric": "resolve rate",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 46.2,
+          "metric": "resolve rate",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "Program Bench",
+          "score": 63.7,
+          "metric": "score",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 81,
+          "metric": "success rate",
+          "harness": "Terminus 2",
+          "version": "2.1",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "PostTrainBench",
+          "score": 34.3,
+          "metric": "score",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "SWE Marathon",
+          "score": 13,
+          "metric": "resolve rate",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 76.8,
+          "metric": "score",
+          "dataset": "public subset",
+          "source": "https://z.ai/blog/glm-5.2"
+        },
+        {
+          "name": "Tool-Decathlon",
+          "score": 48.2,
+          "metric": "score",
+          "source": "https://z.ai/blog/glm-5.2"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-06-13"
+      },
+      "usage": {
+        "rankLastWeek": 33,
+        "tokens": 486400862932,
+        "sharePercent": 0.03,
+        "uniqueUsers": 106376,
+        "sessions": 495819,
+        "weeklyRetentionPercent": 62.9,
+        "costPerSessionUsd": 0.3696,
+        "cachedInputPercent": 93.7
+      }
+    },
+    "glm-5.3": {
+      "path": "zhipuai/glm-5-3",
+      "name": "GLM-5.3",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 83,
+        "coding": 100,
+        "costEfficiency": 31,
+        "contextWindow": 80,
+        "multimodal": 0,
+        "toolUse": 100
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "Terminal-Bench",
+          "score": 88.2,
+          "metric": "pass@1",
+          "harness": "Claude Code 2.1.207",
+          "variant": "max effort",
+          "version": "2.1",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 28.3,
+          "metric": "avg@3",
+          "harness": "Claude Code 2.1.207",
+          "variant": "max effort",
+          "version": "3.0",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 66.9,
+          "metric": "resolved",
+          "harness": "mini-swe-agent",
+          "variant": "max effort; 6h timeout; 400K context",
+          "version": "1.1",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 58,
+          "metric": "score",
+          "variant": "max effort",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "ProgramBench",
+          "score": 19,
+          "metric": "almost solved",
+          "variant": "max effort",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "FrontierSWE",
+          "score": 78.1,
+          "metric": "dominance score",
+          "variant": "max effort",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "SWE-Marathon",
+          "score": 42.5,
+          "metric": "score",
+          "harness": "Claude Code 2.1.207",
+          "variant": "max effort; modified anti-cheat checks",
+          "version": "1.1",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "PostTrainBench",
+          "score": 39.8,
+          "metric": "weighted average",
+          "harness": "Claude Code 2.1.207",
+          "variant": "max effort; 3 runs; modified external-API checks",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "CyberGym",
+          "score": 84.5,
+          "metric": "pass@1",
+          "harness": "Claude Code 2.1.207",
+          "variant": "max effort",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "ExploitGym",
+          "score": 105,
+          "metric": "tasks solved",
+          "harness": "Claude Code 2.1.207",
+          "variant": "max effort; 2h rescaled timeout",
+          "dataset": "869 tasks",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "ExploitGym",
+          "score": 130,
+          "metric": "tasks solved",
+          "harness": "Claude Code 2.1.207",
+          "variant": "max effort; 6h rescaled timeout",
+          "dataset": "869 tasks",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "ExploitBench",
+          "score": 54.4,
+          "metric": "average coverage",
+          "harness": "Claude Code 2.1.207",
+          "variant": "max effort; union over 3 revisions",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "Toolathlon-Verified",
+          "score": 73,
+          "metric": "pass@1",
+          "variant": "max effort",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 48.2,
+          "metric": "pass@1",
+          "variant": "max effort",
+          "version": "1.0.6",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "Agents' Last Exam",
+          "score": 28.5,
+          "metric": "score",
+          "harness": "Claude Code 2.1.207",
+          "variant": "max effort; CLI",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 62.5,
+          "metric": "accuracy",
+          "variant": "max effort; with tools",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        },
+        {
+          "name": "GDPval-AA",
+          "score": 1769,
+          "metric": "Elo",
+          "variant": "max effort",
+          "version": "2",
+          "source": "https://huggingface.co/zai-org/GLM-5.3"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-08-14"
+      },
+      "usage": {
+        "rankLastWeek": 16,
+        "tokens": 2325163791857,
+        "sharePercent": 0.15,
+        "uniqueUsers": 302138,
+        "sessions": 1240216,
+        "weeklyRetentionPercent": 52.5,
+        "costPerSessionUsd": 0.5624,
+        "cachedInputPercent": 94.7
+      }
+    },
+    "grok-4.7": {
+      "path": "xai/grok-4-7",
+      "name": "Grok 4.7",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 71,
+        "costEfficiency": 26,
+        "contextWindow": 72,
+        "multimodal": 50,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [
+        {
+          "name": "CursorBench",
+          "score": 46.3,
+          "metric": "score",
+          "variant": "xhigh effort",
+          "version": "4.0",
+          "source": "https://x.ai/news/grok-4-7"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 71,
+          "metric": "score",
+          "variant": "high effort",
+          "version": "1.1",
+          "source": "https://x.ai/news/grok-4-7"
+        },
+        {
+          "name": "EEBench",
+          "score": 64,
+          "metric": "score",
+          "variant": "xhigh effort",
+          "source": "https://x.ai/news/grok-4-7"
+        },
+        {
+          "name": "AA-Briefcase",
+          "score": 1657,
+          "metric": "Elo",
+          "variant": "xhigh effort",
+          "version": "1.1",
+          "source": "https://x.ai/news/grok-4-7"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 37.6,
+          "metric": "score",
+          "variant": "xhigh effort",
+          "version": "4.0",
+          "source": "https://x.ai/news/grok-4-7"
+        },
+        {
+          "name": "Harvey Legal Agent Benchmark",
+          "score": 19.6,
+          "metric": "score",
+          "variant": "xhigh effort",
+          "source": "https://x.ai/news/grok-4-7"
+        },
+        {
+          "name": "HealthBench",
+          "score": 56.7,
+          "metric": "score",
+          "variant": "xhigh effort; professional",
+          "source": "https://x.ai/news/grok-4-7"
+        },
+        {
+          "name": "GDPval",
+          "score": 1695,
+          "metric": "Elo",
+          "variant": "xhigh effort",
+          "source": "https://x.ai/news/grok-4-7"
+        }
+      ],
+      "facts": {
+        "contextTokens": 500000,
+        "outputTokens": 500000,
+        "inputModalities": [
+          "text",
+          "image",
+          "pdf"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-09-21"
+      },
+      "usage": {
+        "rankLastWeek": 38,
+        "tokens": 112009803570,
+        "sharePercent": 0.01,
+        "uniqueUsers": 93896,
+        "sessions": 239520,
+        "weeklyRetentionPercent": 46.8,
+        "costPerSessionUsd": 0.4247,
+        "cachedInputPercent": 87.5
+      }
+    },
+    "muse-spark-1.2-contributor": {
+      "path": "meta/muse-spark-1-2",
+      "name": "Muse Spark 1.2",
+      "updatedAt": "2026-10-22T01:40:05.000Z",
+      "aspects": {
+        "reasoning": 0,
+        "coding": 41,
+        "costEfficiency": 30,
+        "contextWindow": 92,
+        "multimodal": 83,
+        "toolUse": 0
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "GDPval-AA",
+          "score": 1615,
+          "metric": "Elo",
+          "harness": "Stirrup",
+          "variant": "xhigh effort",
+          "version": "2",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "JobBench",
+          "score": 61.6,
+          "metric": "mean rubric score",
+          "harness": "OpenCode",
+          "variant": "xhigh effort",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "OSWorld",
+          "score": 47.6,
+          "metric": "mean partial score",
+          "harness": "Meta internal evaluation framework",
+          "variant": "xhigh effort",
+          "dataset": "06.24",
+          "version": "2.0",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "OSWorld",
+          "score": 17.9,
+          "metric": "binary completion rate",
+          "harness": "Meta internal evaluation framework",
+          "variant": "xhigh effort",
+          "dataset": "06.24",
+          "version": "2.0",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "DeepSearchQA",
+          "score": 85.9,
+          "metric": "F1",
+          "harness": "Meta browser harness",
+          "variant": "xhigh effort",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "Agentic IF Index",
+          "score": 46.2,
+          "metric": "score",
+          "variant": "xhigh effort",
+          "dataset": "Meta internal",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 38.2,
+          "metric": "pass@1",
+          "variant": "xhigh effort",
+          "dataset": "public v3 task set",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "MRCR",
+          "score": 66.3,
+          "metric": "mean sequence-match ratio",
+          "variant": "xhigh effort",
+          "dataset": "8-needle, 256K-512K",
+          "version": "2",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "MRCR",
+          "score": 55.5,
+          "metric": "mean sequence-match ratio",
+          "variant": "xhigh effort",
+          "dataset": "8-needle, 512K-1M",
+          "version": "2",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 55,
+          "metric": "pass@1",
+          "harness": "mini-swe-agent",
+          "variant": "xhigh effort",
+          "version": "1.1",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "SWE-Atlas Codebase QnA",
+          "score": 46.2,
+          "metric": "pass@1",
+          "harness": "mini-swe-agent",
+          "variant": "xhigh effort",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 82.9,
+          "metric": "pass@1",
+          "harness": "Muse Code",
+          "variant": "xhigh effort",
+          "version": "2.1",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 59.3,
+          "metric": "pass@1",
+          "harness": "Muse Code",
+          "variant": "xhigh effort",
+          "version": "1.1",
+          "source": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 90.3,
+          "metric": "pass rate",
+          "harness": "Scale AI",
+          "variant": "xhigh effort",
+          "source": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text",
+          "image",
+          "video",
+          "pdf",
+          "audio"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-08-05"
+      },
+      "usage": {
+        "rankLastWeek": null,
+        "tokens": 0,
+        "sharePercent": 0,
+        "uniqueUsers": 0,
+        "sessions": 0,
+        "weeklyRetentionPercent": null,
+        "costPerSessionUsd": 0,
+        "cachedInputPercent": 0
+      }
+    },
+    "muse-spark-1.3-contributor": {
+      "path": "meta/muse-spark-1-3",
+      "name": "Muse Spark 1.3",
+      "updatedAt": "2026-09-28T12:09:39.000Z",
+      "aspects": {
+        "reasoning": 100,
+        "coding": 90,
+        "costEfficiency": 30,
+        "contextWindow": 92,
+        "multimodal": 83,
+        "toolUse": 100
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "GDPval-AA",
+          "score": 1754,
+          "metric": "Elo",
+          "harness": "Stirrup",
+          "variant": "max effort",
+          "version": "2",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "JobBench",
+          "score": 64.9,
+          "metric": "mean rubric score",
+          "harness": "OpenCode",
+          "variant": "max effort",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "OSWorld",
+          "score": 66.9,
+          "metric": "mean partial score",
+          "harness": "Meta internal evaluation framework",
+          "variant": "max effort",
+          "dataset": "08.08",
+          "version": "2.0",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "OSWorld",
+          "score": 32,
+          "metric": "binary completion rate",
+          "harness": "Meta internal evaluation framework",
+          "variant": "max effort",
+          "dataset": "08.08",
+          "version": "2.0",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "DeepSearchQA",
+          "score": 90.3,
+          "metric": "F1",
+          "harness": "Meta browser harness",
+          "variant": "max effort",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "Agentic IF Index",
+          "score": 57.8,
+          "metric": "score",
+          "variant": "max effort",
+          "dataset": "Meta internal",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 49.6,
+          "metric": "pass@1",
+          "variant": "max effort",
+          "dataset": "public v3 task set",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "MRCR",
+          "score": 98.5,
+          "metric": "mean sequence-match ratio",
+          "variant": "max effort",
+          "dataset": "8-needle, 256K-512K",
+          "version": "2",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "MRCR",
+          "score": 98.1,
+          "metric": "mean sequence-match ratio",
+          "variant": "max effort",
+          "dataset": "8-needle, 512K-1M",
+          "version": "2",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 75.4,
+          "metric": "pass@1",
+          "harness": "mini-swe-agent",
+          "variant": "max effort",
+          "version": "1.1",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "SWE-Atlas Codebase QnA",
+          "score": 59.4,
+          "metric": "pass@1",
+          "harness": "mini-swe-agent",
+          "variant": "max effort",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 88.8,
+          "metric": "pass@1",
+          "harness": "Muse Code",
+          "variant": "max effort",
+          "version": "2.1",
+          "source": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text",
+          "image",
+          "video",
+          "pdf",
+          "audio"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-09-02"
+      },
+      "usage": {
+        "rankLastWeek": null,
+        "tokens": 0,
+        "sharePercent": 0,
+        "uniqueUsers": 0,
+        "sessions": 0,
+        "weeklyRetentionPercent": null,
+        "costPerSessionUsd": 0,
+        "cachedInputPercent": 0
+      }
+    },
+    "glm-5.3-flash": {
+      "path": "zhipuai/glm-5-3-flash",
+      "name": "GLM-5.3-Flash",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 55,
+        "coding": 35,
+        "costEfficiency": 72,
+        "contextWindow": 80,
+        "multimodal": 67,
+        "toolUse": 0
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "Terminal-Bench",
+          "score": 84.3,
+          "metric": "pass@1",
+          "harness": "Claude Code 2.1.207",
+          "variant": "max effort",
+          "version": "2.1",
+          "source": "https://huggingface.co/zai-org/GLM-5.3-Flash"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 63.4,
+          "metric": "resolved",
+          "harness": "mini-swe-agent",
+          "variant": "max effort",
+          "version": "1.1",
+          "source": "https://huggingface.co/zai-org/GLM-5.3-Flash"
+        },
+        {
+          "name": "Agents' Last Exam",
+          "score": 26.3,
+          "metric": "score",
+          "variant": "max effort",
+          "source": "https://huggingface.co/zai-org/GLM-5.3-Flash"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 48.8,
+          "metric": "pass@1",
+          "variant": "max effort",
+          "version": "1.0.6",
+          "source": "https://huggingface.co/zai-org/GLM-5.3-Flash"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 55.3,
+          "metric": "accuracy",
+          "variant": "max effort; with tools",
+          "dataset": "full set",
+          "source": "https://huggingface.co/zai-org/GLM-5.3-Flash"
+        },
+        {
+          "name": "GDPval-AA",
+          "score": 1773,
+          "metric": "Elo",
+          "variant": "max effort",
+          "version": "2",
+          "source": "https://huggingface.co/zai-org/GLM-5.3-Flash"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text",
+          "image",
+          "video",
+          "pdf"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-08-26"
+      },
+      "usage": {
+        "rankLastWeek": 3,
+        "tokens": 47177770872557,
+        "sharePercent": 3.11,
+        "uniqueUsers": 1353994,
+        "sessions": 26222867,
+        "weeklyRetentionPercent": 70.1,
+        "costPerSessionUsd": 0.0368,
+        "cachedInputPercent": 93.4
+      }
+    },
+    "gpt-5.6-luna": {
+      "path": "openai/gpt-5-6-luna",
+      "name": "GPT-5.6 Luna",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 65,
+        "coding": 81,
+        "costEfficiency": 58,
+        "contextWindow": 98,
+        "multimodal": 50,
+        "toolUse": 64
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 62.7,
+          "metric": "resolve rate",
+          "source": "https://openai.com/index/gpt-5-6/"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 84.7,
+          "metric": "success rate",
+          "version": "2.1",
+          "source": "https://openai.com/index/gpt-5-6/"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 67.2,
+          "metric": "resolve rate",
+          "version": "1.1",
+          "source": "https://openai.com/index/gpt-5-6/"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 92.3,
+          "metric": "accuracy",
+          "source": "https://openai.com/index/gpt-5-6/"
+        },
+        {
+          "name": "FrontierMath",
+          "score": 78.6,
+          "metric": "accuracy",
+          "dataset": "Tier 1-3",
+          "version": "v2",
+          "source": "https://openai.com/index/gpt-5-6/"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 83.3,
+          "metric": "accuracy",
+          "source": "https://openai.com/index/gpt-5-6/"
+        },
+        {
+          "name": "OSWorld",
+          "score": 45.6,
+          "metric": "success rate",
+          "version": "2.0",
+          "source": "https://openai.com/index/gpt-5-6/"
+        },
+        {
+          "name": "MMMU Pro",
+          "score": 78.4,
+          "metric": "accuracy",
+          "variant": "no tools",
+          "source": "https://openai.com/index/gpt-5-6/"
+        },
+        {
+          "name": "Agents' Last Exam",
+          "score": 50.3,
+          "source": "https://openai.com/index/gpt-5-6/"
+        },
+        {
+          "name": "Toolathlon",
+          "score": 53.4,
+          "metric": "success rate",
+          "source": "https://openai.com/index/gpt-5-6/"
+        },
+        {
+          "name": "Artificial Analysis Intelligence Index",
+          "score": 51.2,
+          "metric": "index score",
+          "variant": "max",
+          "version": "4.1",
+          "source": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed"
+        },
+        {
+          "name": "Artificial Analysis Coding Agent Index",
+          "score": 74.6,
+          "metric": "index score",
+          "harness": "Codex",
+          "variant": "max",
+          "version": "1.1",
+          "source": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1050000,
+        "outputTokens": 128000,
+        "inputModalities": [
+          "text",
+          "image",
+          "pdf"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-07-09"
+      },
+      "usage": {
+        "rankLastWeek": 29,
+        "tokens": 1133582786814,
+        "sharePercent": 0.07,
+        "uniqueUsers": 175007,
+        "sessions": 1256879,
+        "weeklyRetentionPercent": 59.5,
+        "costPerSessionUsd": 0.0474,
+        "cachedInputPercent": 99.9
+      }
+    },
+    "gpt-6-luna": {
+      "path": "openai/gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 45,
+        "costEfficiency": 71,
+        "contextWindow": 98,
+        "multimodal": 50,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [
+        {
+          "name": "DeepSWE",
+          "score": 66.6,
+          "metric": "score",
+          "variant": "max effort",
+          "version": "1.1",
+          "source": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1050000,
+        "outputTokens": 128000,
+        "inputModalities": [
+          "text",
+          "image",
+          "pdf"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-09-22"
+      },
+      "usage": {
+        "rankLastWeek": 9,
+        "tokens": 7425474510234,
+        "sharePercent": 0.49,
+        "uniqueUsers": 1712339,
+        "sessions": 13307345,
+        "weeklyRetentionPercent": 67.9,
+        "costPerSessionUsd": 0.0143,
+        "cachedInputPercent": 99.9
+      }
+    },
+    "claude-haiku-5-5": {
+      "path": "anthropic/claude-haiku-5-5",
+      "name": "Claude Haiku 5.5",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 68,
+        "coding": 25,
+        "costEfficiency": 71,
+        "contextWindow": 80,
+        "multimodal": 50,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "GDPval-AA",
+          "score": 1620,
+          "metric": "Elo",
+          "version": "2.1",
+          "source": "https://www.anthropic.com/claude-haiku-5-5"
+        },
+        {
+          "name": "AA-Briefcase",
+          "score": 1578,
+          "metric": "Elo",
+          "version": "1.1",
+          "source": "https://www.anthropic.com/claude-haiku-5-5"
+        },
+        {
+          "name": "OSWorld",
+          "score": 72.4,
+          "metric": "partial score",
+          "variant": "offline subset",
+          "version": "2.1",
+          "source": "https://www.anthropic.com/claude-haiku-5-5"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 45.9,
+          "metric": "score",
+          "variant": "no tools",
+          "source": "https://www.anthropic.com/claude-haiku-5-5"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 57.4,
+          "metric": "score",
+          "variant": "with tools",
+          "source": "https://www.anthropic.com/claude-haiku-5-5"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 39.2,
+          "metric": "score",
+          "version": "4.0",
+          "source": "https://www.anthropic.com/claude-haiku-5-5"
+        },
+        {
+          "name": "FrontierCode",
+          "score": 46.4,
+          "metric": "score",
+          "dataset": "Main",
+          "version": "1.1",
+          "source": "https://www.anthropic.com/claude-haiku-5-5"
+        },
+        {
+          "name": "Chartography",
+          "score": 46.4,
+          "metric": "score",
+          "variant": "no tools",
+          "source": "https://www.anthropic.com/claude-haiku-5-5"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 128000,
+        "inputModalities": [
+          "text",
+          "image",
+          "pdf"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-10-07"
+      },
+      "usage": {
+        "rankLastWeek": 18,
+        "tokens": 2335891444289,
+        "sharePercent": 0.15,
+        "uniqueUsers": 285634,
+        "sessions": 2778120,
+        "weeklyRetentionPercent": 67,
+        "costPerSessionUsd": 0.0807,
+        "cachedInputPercent": 98.9
+      }
+    },
+    "hy3": {
+      "path": "tencent/hy3",
+      "name": "Hy3",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 67,
+        "coding": 70,
+        "costEfficiency": 70,
+        "contextWindow": 52,
+        "multimodal": 0,
+        "toolUse": 40
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 78,
+          "metric": "resolved",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 75.8,
+          "metric": "score",
+          "harness": "SWE-agent",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 57.9,
+          "metric": "score",
+          "harness": "SWE-agent",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 71.7,
+          "metric": "score",
+          "harness": "Terminus 2",
+          "variant": "highest reasoning effort; 4h timeout; 500 episodes",
+          "version": "2.1",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 45.6,
+          "metric": "score",
+          "harness": "Claude Code",
+          "variant": "highest reasoning effort; 250 turns; 12000s timeout",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 28,
+          "metric": "score",
+          "harness": "mini-swe-agent",
+          "variant": "highest reasoning effort; 2h timeout",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 84.2,
+          "metric": "score",
+          "harness": "Tencent internal search harness",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "WideSearch",
+          "score": 76.4,
+          "metric": "score",
+          "harness": "Tencent internal search harness",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "DeepSearchQA",
+          "score": 91,
+          "metric": "score",
+          "harness": "Tencent internal search harness",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 79.1,
+          "metric": "score",
+          "harness": "Scale AI",
+          "variant": "highest reasoning effort; April 2026; 100 tool calls",
+          "dataset": "500 public tasks",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "Toolathlon",
+          "score": 48.5,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "APEX-Agents",
+          "score": 25.6,
+          "metric": "pass@1",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "ClawEval",
+          "score": 68.5,
+          "metric": "pass@3",
+          "harness": "Tencent internal harness",
+          "variant": "highest reasoning effort",
+          "dataset": "105 queries",
+          "version": "20260325",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "WildClawBench",
+          "score": 53.6,
+          "metric": "score",
+          "harness": "OpenClaw",
+          "variant": "highest reasoning effort",
+          "dataset": "35 text-only tasks",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "SkillsBench",
+          "score": 55.3,
+          "metric": "average over 3 runs",
+          "harness": "Claude Code",
+          "variant": "highest reasoning effort",
+          "dataset": "79 text-only tasks",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 53.2,
+          "metric": "score",
+          "variant": "highest reasoning effort; with tools",
+          "dataset": "text-only",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 37,
+          "metric": "score",
+          "variant": "highest reasoning effort; without tools",
+          "dataset": "text-only",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 90.4,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "FrontierScience",
+          "score": 21.3,
+          "metric": "score",
+          "variant": "highest reasoning effort; research",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "FrontierScience",
+          "score": 74.8,
+          "metric": "score",
+          "variant": "highest reasoning effort; olympiad",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "USAMO",
+          "score": 72,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "version": "2026",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "MathArena Apex",
+          "score": 38.7,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "ArxivMath",
+          "score": 52.2,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "HorizonMath",
+          "score": 7.1,
+          "metric": "pass@12",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "PHYBench",
+          "score": 77.4,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "CMT Benchmark",
+          "score": 37.8,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "IMOAnswerBench",
+          "score": 90,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "SuperChem",
+          "score": 54.9,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "CL-bench",
+          "score": 23.8,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "CL-bench-life",
+          "score": 17,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        },
+        {
+          "name": "AA-LCR",
+          "score": 73.4,
+          "metric": "score",
+          "variant": "highest reasoning effort",
+          "source": "https://huggingface.co/tencent/Hy3"
+        }
+      ],
+      "facts": {
+        "contextTokens": 256000,
+        "outputTokens": 128000,
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-07-06"
+      },
+      "usage": {
+        "rankLastWeek": 39,
+        "tokens": 134888600828,
+        "sharePercent": 0.01,
+        "uniqueUsers": 53627,
+        "sessions": 390466,
+        "weeklyRetentionPercent": 74.4,
+        "costPerSessionUsd": 0.0202,
+        "cachedInputPercent": 89
+      }
+    },
+    "hy4-preview": {
+      "path": "tencent/hy4-preview",
+      "name": "Hy4 preview",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 41,
+        "contextWindow": 86,
+        "multimodal": 0,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1024000,
+        "outputTokens": 64000,
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-08-28"
+      },
+      "usage": {
+        "rankLastWeek": 40,
+        "tokens": 108278462008,
+        "sharePercent": 0.01,
+        "uniqueUsers": 43360,
+        "sessions": 117600,
+        "weeklyRetentionPercent": 55.1,
+        "costPerSessionUsd": 0.0861,
+        "cachedInputPercent": 95.9
+      }
+    },
+    "kimi-k2.7-code": {
+      "path": "moonshotai/kimi-k2-7-code",
+      "name": "Kimi K2.7 Code",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 33,
+        "contextWindow": 61,
+        "multimodal": 50,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [
+        {
+          "name": "Kimi Code Bench",
+          "score": 62,
+          "harness": "Kimi Code CLI",
+          "version": "v2",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+        },
+        {
+          "name": "Program Bench",
+          "score": 53.6,
+          "harness": "Kimi Code CLI",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+        },
+        {
+          "name": "MLS Bench Lite",
+          "score": 35.1,
+          "harness": "Kimi Code CLI",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 76,
+          "metric": "success rate",
+          "harness": "Kimi Code CLI",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+        },
+        {
+          "name": "MCP Mark Verified",
+          "score": 81.1,
+          "metric": "success rate",
+          "harness": "Kimi Code CLI",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+        },
+        {
+          "name": "Kimi Claw 24/7 Bench",
+          "score": 46.9,
+          "harness": "Kimi Code CLI",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+        }
+      ],
+      "facts": {
+        "contextTokens": 262144,
+        "outputTokens": 262144,
+        "inputModalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-06-12"
+      },
+      "usage": {
+        "rankLastWeek": 28,
+        "tokens": 1311760401203,
+        "sharePercent": 0.09,
+        "uniqueUsers": 150228,
+        "sessions": 586087,
+        "weeklyRetentionPercent": 63.7,
+        "costPerSessionUsd": 0.5583,
+        "cachedInputPercent": 94.9
+      }
+    },
+    "kimi-k3": {
+      "path": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 100,
+        "coding": 100,
+        "costEfficiency": 10,
+        "contextWindow": 92,
+        "multimodal": 50,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [
+        {
+          "name": "DeepSWE",
+          "score": 67.5,
+          "metric": "resolve rate",
+          "harness": "Kimi Code",
+          "variant": "max effort",
+          "version": "1.1",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 88.3,
+          "metric": "accuracy",
+          "harness": "Kimi Code",
+          "variant": "max effort",
+          "version": "2.1",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "FrontierSWE",
+          "score": 81.2,
+          "metric": "dominance score",
+          "harness": "Kimi Code",
+          "variant": "max effort",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "Program Bench",
+          "score": 77.8,
+          "metric": "score",
+          "harness": "Kimi Code",
+          "variant": "max effort",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "SWE Marathon",
+          "score": 42,
+          "metric": "resolve rate",
+          "harness": "Claude Code",
+          "variant": "max effort",
+          "version": "1.1",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "GDPval-AA",
+          "score": 1668,
+          "metric": "Elo",
+          "variant": "max effort",
+          "version": "v2",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "AA-Briefcase",
+          "score": 1548,
+          "metric": "Elo",
+          "variant": "max effort",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 30.8,
+          "metric": "success rate",
+          "variant": "max effort",
+          "dataset": "600-task public subset",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "JobBench",
+          "score": 52.9,
+          "metric": "score",
+          "variant": "max effort",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "SpreadsheetBench",
+          "score": 34.8,
+          "metric": "score",
+          "harness": "Claude Code",
+          "variant": "max effort",
+          "version": "2",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 91.2,
+          "metric": "accuracy",
+          "variant": "max effort, context compaction",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 91.3,
+          "metric": "accuracy",
+          "variant": "max effort, with tools",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        },
+        {
+          "name": "ZeroBench",
+          "score": 41,
+          "metric": "pass@5",
+          "variant": "max effort, with tools",
+          "source": "https://www.kimi.com/blog/kimi-k3"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 1048576,
+        "inputModalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-07-16"
+      },
+      "usage": {
+        "rankLastWeek": 35,
+        "tokens": 412277715818,
+        "sharePercent": 0.03,
+        "uniqueUsers": 185980,
+        "sessions": 610656,
+        "weeklyRetentionPercent": 48.7,
+        "costPerSessionUsd": 0.4614,
+        "cachedInputPercent": 91.3
+      }
+    },
+    "mimo-v2.6-flash": {
+      "path": "xiaomi/mimo-v2-6-flash",
+      "name": "MiMo-V2.6-Flash",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 29,
+        "coding": 58,
+        "costEfficiency": 77,
+        "contextWindow": 92,
+        "multimodal": 67,
+        "toolUse": 55
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "DeepSWE",
+          "score": 67.9,
+          "metric": "score",
+          "version": "1.1",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "ProgramBench",
+          "score": 26,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "MiMo Code Bench",
+          "score": 61.2,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 52.3,
+          "metric": "score",
+          "version": "1.0.6",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "Toolathlon-Verified",
+          "score": 73.6,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "Agents' Last Exam",
+          "score": 27.6,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 28.8,
+          "metric": "score",
+          "version": "4.0",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 87.6,
+          "metric": "score",
+          "version": "2.1",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 80.8,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "JobBench",
+          "score": 61.2,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "CyberGym",
+          "score": 95.1,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "MiMo Cyber Bench",
+          "score": 77.2,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "ExploitGym",
+          "score": 6,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "ExploitBench",
+          "score": 25.3,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "SEC-Bench Pro",
+          "score": 47.5,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "MiMo VisualCoding",
+          "score": 71.5,
+          "metric": "score",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-09-22"
+      },
+      "usage": {
+        "rankLastWeek": 8,
+        "tokens": 58681782393197,
+        "sharePercent": 3.87,
+        "uniqueUsers": 1251430,
+        "sessions": 41165322,
+        "weeklyRetentionPercent": 81.3,
+        "costPerSessionUsd": 0.0038,
+        "cachedInputPercent": 94
+      }
+    },
+    "mimo-v2.6-pro": {
+      "path": "xiaomi/mimo-v2-6-pro",
+      "name": "MiMo-V2.6-Pro",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 41,
+        "coding": 100,
+        "costEfficiency": 59,
+        "contextWindow": 92,
+        "multimodal": 67,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [
+        {
+          "name": "DeepSWE",
+          "score": 71.9,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "version": "1.1",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "ProgramBench",
+          "score": 26.5,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "MiMo Code Bench",
+          "score": 63.2,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 53.1,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "version": "1.0.6",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "Toolathlon-Verified",
+          "score": 76.9,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "GDPval-AA",
+          "score": 1673,
+          "metric": "Elo",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "version": "2.1",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "Agents' Last Exam",
+          "score": 31.6,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 34.9,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "version": "4.0",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 89.9,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "version": "2.1",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 82,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "JobBench",
+          "score": 62,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "CyberGym",
+          "score": 94,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "MiMo Cyber Bench",
+          "score": 80.2,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "ExploitGym",
+          "score": 17.8,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "ExploitBench",
+          "score": 47.9,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "SEC-Bench Pro",
+          "score": 66.3,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        },
+        {
+          "name": "MiMo VisualCoding",
+          "score": 72.3,
+          "metric": "score",
+          "variant": "MiMo-V2.6 Pro comparison column",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-09-22"
+      },
+      "usage": {
+        "rankLastWeek": 20,
+        "tokens": 4150023903387,
+        "sharePercent": 0.27,
+        "uniqueUsers": 188129,
+        "sessions": 954944,
+        "weeklyRetentionPercent": 69.3,
+        "costPerSessionUsd": 0.0979,
+        "cachedInputPercent": 96.8
+      }
+    },
+    "minimax-m3": {
+      "path": "minimax/MiniMax-M3",
+      "name": "MiniMax-M3",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 84,
+        "costEfficiency": 55,
+        "contextWindow": 92,
+        "multimodal": 50,
+        "toolUse": 21
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 80.5,
+          "metric": "resolved",
+          "harness": "Claude Code",
+          "source": "https://www.minimax.io/blog/minimax-m3"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 59,
+          "metric": "resolve rate",
+          "harness": "Claude Code",
+          "source": "https://www.minimax.io/blog/minimax-m3"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 66,
+          "metric": "success rate",
+          "version": "2.1",
+          "source": "https://www.minimax.io/blog/minimax-m3"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 83.52,
+          "metric": "accuracy",
+          "source": "https://www.minimax.io/blog/minimax-m3"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 74.2,
+          "metric": "success rate",
+          "source": "https://www.minimax.io/blog/minimax-m3"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 70.06,
+          "metric": "success rate",
+          "source": "https://www.minimax.io/blog/minimax-m3"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 512000,
+        "inputModalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-06-01"
+      },
+      "usage": {
+        "rankLastWeek": 25,
+        "tokens": 2056193391373,
+        "sharePercent": 0.14,
+        "uniqueUsers": 158283,
+        "sessions": 1249576,
+        "weeklyRetentionPercent": 67.5,
+        "costPerSessionUsd": 0.1322,
+        "cachedInputPercent": 95.8
+      }
+    },
+    "minimax-m3.1-flash": {
+      "path": "minimax/MiniMax-M3-1-Flash",
+      "name": "MiniMax-M3.1-Flash",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 67,
+        "contextWindow": 80,
+        "multimodal": 50,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 512000,
+        "inputModalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-10-19"
+      },
+      "usage": {
+        "rankLastWeek": 5,
+        "tokens": 197803567226350,
+        "sharePercent": 13.05,
+        "uniqueUsers": 1033172,
+        "sessions": 126329502,
+        "weeklyRetentionPercent": 72,
+        "costPerSessionUsd": 0.0007,
+        "cachedInputPercent": 96.5
+      }
+    },
+    "longcat-2.0": {
+      "path": "meituan/longcat-2-0",
+      "name": "LongCat-2.0",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 29,
+        "coding": 69,
+        "costEfficiency": 55,
+        "contextWindow": 80,
+        "multimodal": 0,
+        "toolUse": 29
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 59.5,
+          "metric": "resolve rate",
+          "source": "https://github.com/meituan-longcat/longcat-2.0"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 77.3,
+          "metric": "resolve rate",
+          "source": "https://github.com/meituan-longcat/longcat-2.0"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 70.8,
+          "metric": "success rate",
+          "version": "2.1",
+          "source": "https://github.com/meituan-longcat/longcat-2.0"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 88.9,
+          "metric": "accuracy",
+          "source": "https://github.com/meituan-longcat/longcat-2.0"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 79.9,
+          "metric": "accuracy",
+          "source": "https://github.com/meituan-longcat/longcat-2.0"
+        },
+        {
+          "name": "IFEval",
+          "score": 90,
+          "metric": "accuracy",
+          "source": "https://github.com/meituan-longcat/longcat-2.0"
+        },
+        {
+          "name": "FORTE",
+          "score": 73.2,
+          "metric": "success rate",
+          "source": "https://github.com/meituan-longcat/longcat-2.0"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-06-30"
+      },
+      "usage": {
+        "rankLastWeek": 34,
+        "tokens": 308860675209,
+        "sharePercent": 0.02,
+        "uniqueUsers": 49484,
+        "sessions": 512185,
+        "weeklyRetentionPercent": 71.1,
+        "costPerSessionUsd": 0.0127,
+        "cachedInputPercent": 97.2
+      }
+    },
+    "step-5-preview": {
+      "path": "stepfun/step-5-preview",
+      "name": "Step 5 Preview",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 35,
+        "contextWindow": 80,
+        "multimodal": 50,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 1000000,
+        "inputModalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-09-16"
+      },
+      "usage": {
+        "rankLastWeek": 41,
+        "tokens": 7216654644345,
+        "sharePercent": 0.48,
+        "uniqueUsers": 132814,
+        "sessions": 2692387,
+        "weeklyRetentionPercent": 59.2,
+        "costPerSessionUsd": 0.0077,
+        "cachedInputPercent": 95.5
+      }
+    },
+    "beam-free": {
+      "path": "reflection/beam-1-0-501b-a23b",
+      "name": "Beam 1.0 501B A23B",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 75,
+        "coding": 88,
+        "costEfficiency": 54,
+        "contextWindow": 92,
+        "multimodal": 0,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [
+        {
+          "name": "DeepSWE",
+          "score": 43.3,
+          "variant": "BF16",
+          "version": "1.1",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 76.5,
+          "variant": "BF16",
+          "dataset": "hard",
+          "version": "2",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 66.1,
+          "variant": "BF16",
+          "version": "1",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 80.1,
+          "variant": "BF16",
+          "version": "2.1",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "SWE-Atlas Codebase QnA",
+          "score": 31.8,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 78.3,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "SWE-Bench Verified",
+          "score": 81.6,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "AIME 2026",
+          "score": 97.7,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 36,
+          "variant": "BF16; no tools",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 51.1,
+          "variant": "BF16; with tools",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "SciCode",
+          "score": 49.2,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "CritPt",
+          "score": 16.3,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 90.6,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "LiveCodeBench",
+          "score": 88.3,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 39.3,
+          "variant": "BF16",
+          "dataset": "public",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 80.8,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "τ3 Banking",
+          "score": 36.1,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 76.8,
+          "variant": "BF16; with context management",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "DeepSearchQA",
+          "score": 80.5,
+          "variant": "BF16; with context management",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "AA-LCR",
+          "score": 78.2,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "LongBench",
+          "score": 67.5,
+          "variant": "BF16",
+          "version": "2",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "IFBench",
+          "score": 79.6,
+          "variant": "BF16",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        },
+        {
+          "name": "AA-Omniscience",
+          "score": 10.8,
+          "metric": "index",
+          "variant": "BF16",
+          "dataset": "public split",
+          "source": "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-10-05"
+      },
+      "usage": {
+        "rankLastWeek": 6,
+        "tokens": 28004872951794,
+        "sharePercent": 1.85,
+        "uniqueUsers": 518588,
+        "sessions": 8853679,
+        "weeklyRetentionPercent": 74,
+        "costPerSessionUsd": 0,
+        "cachedInputPercent": 96.3
+      }
+    },
+    "qwen3.8-max": {
+      "path": "alibaba/qwen3-8-max",
+      "name": "Qwen3.8 Max",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 82,
+        "coding": 100,
+        "costEfficiency": 26,
+        "contextWindow": 80,
+        "multimodal": 67,
+        "toolUse": 91
+      },
+      "aspectNotes": {
+        "reasoning": null,
+        "coding": null,
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": null
+      },
+      "benchmarks": [
+        {
+          "name": "Terminal-Bench",
+          "score": 86.6,
+          "metric": "avg@10",
+          "harness": "Claude Code",
+          "variant": "5h timeout",
+          "version": "2.1",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 67.7,
+          "metric": "resolved",
+          "harness": "Claude Code",
+          "dataset": "Qwen refined and corrected task set",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 56.6,
+          "metric": "score",
+          "harness": "Claude Code",
+          "version": "1.1",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 55.9,
+          "metric": "score",
+          "harness": "Claude Code",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "FrontierSWE",
+          "score": 73.5,
+          "metric": "dominance score",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "MLS-Bench-Lite",
+          "score": 41,
+          "metric": "score",
+          "harness": "Claude Code",
+          "variant": "5h timeout",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "PaperBench",
+          "score": 93,
+          "metric": "score",
+          "harness": "BasicAgent",
+          "variant": "Code-Dev; 3 runs; 12h timeout; Opus 4.6 judge",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "AndroidBench",
+          "score": 75.1,
+          "metric": "avg@3",
+          "dataset": "95 public tasks",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "QwenSWEBench",
+          "score": 80.7,
+          "metric": "avg@3",
+          "harness": "Claude Code",
+          "dataset": "internal",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "QwenQoderBench",
+          "score": 58.4,
+          "metric": "avg@5",
+          "harness": "Claude Code",
+          "dataset": "internal",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "QwenReactBench",
+          "score": 1724,
+          "metric": "Elo",
+          "dataset": "internal",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "QwenSVGBench",
+          "score": 1713,
+          "metric": "Elo",
+          "dataset": "internal",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "CoWorkBench",
+          "score": 74.8,
+          "metric": "score",
+          "dataset": "internal",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "WorkSpaceBench",
+          "score": 67.7,
+          "metric": "score",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "JobBench",
+          "score": 53.4,
+          "metric": "score",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "SkillsBench",
+          "score": 70.2,
+          "metric": "avg@3",
+          "harness": "OpenCode",
+          "dataset": "87 tasks",
+          "version": "1.1",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "Agents' Last Exam",
+          "score": 27,
+          "metric": "pass@1",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "Agents' Last Exam",
+          "score": 52.4,
+          "metric": "score",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 27.3,
+          "metric": "pass@1",
+          "dataset": "600 public tasks",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "Toolathlon-Verified",
+          "score": 72.5,
+          "metric": "pass@1",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "WideSearch",
+          "score": 81.9,
+          "metric": "average item F1",
+          "harness": "Qwen-Agent",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 56.2,
+          "metric": "score",
+          "variant": "with tools",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 43.6,
+          "metric": "score",
+          "variant": "without tools",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 92.6,
+          "metric": "score",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "IFBench",
+          "score": 82.8,
+          "metric": "score",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "$OneMillion-Bench",
+          "score": 52.5,
+          "metric": "expert score",
+          "variant": "gemini-3.1-pro-preview judge",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "HealthBench",
+          "score": 60.2,
+          "metric": "score",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "PLawBench",
+          "score": 73.2,
+          "metric": "score",
+          "variant": "gemini-3.1-pro-preview judge",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "PRBench",
+          "score": 57.6,
+          "metric": "score",
+          "variant": "legal",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "PRBench",
+          "score": 58.3,
+          "metric": "score",
+          "variant": "finance",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "MRCR",
+          "score": 92.9,
+          "metric": "score",
+          "dataset": "256K; 8-needle",
+          "version": "2",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        },
+        {
+          "name": "LongBench",
+          "score": 66.3,
+          "metric": "score",
+          "version": "2",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+        }
+      ],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text",
+          "image",
+          "video",
+          "pdf"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-08-03"
+      },
+      "usage": {
+        "rankLastWeek": 36,
+        "tokens": 221075543567,
+        "sharePercent": 0.01,
+        "uniqueUsers": 115683,
+        "sessions": 441190,
+        "weeklyRetentionPercent": 47.7,
+        "costPerSessionUsd": 0.2658,
+        "cachedInputPercent": 96.4
+      }
+    },
+    "qwen3.8-flash": {
+      "path": "alibaba/qwen3-8-flash",
+      "name": "Qwen3.8 Flash",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 70,
+        "contextWindow": 80,
+        "multimodal": 50,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 131072,
+        "inputModalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-08-26"
+      },
+      "usage": {
+        "rankLastWeek": 19,
+        "tokens": 2776281123644,
+        "sharePercent": 0.18,
+        "uniqueUsers": 220140,
+        "sessions": 2754258,
+        "weeklyRetentionPercent": 68.5,
+        "costPerSessionUsd": 0.0333,
+        "cachedInputPercent": 96.8
+      }
+    },
+    "qwen3.7-plus": {
+      "path": "alibaba/qwen3-7-plus",
+      "name": "Qwen3.7 Plus",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 51,
+        "contextWindow": 80,
+        "multimodal": 50,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 64000,
+        "inputModalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-06-02"
+      },
+      "usage": {
+        "rankLastWeek": 31,
+        "tokens": 606353903225,
+        "sharePercent": 0.04,
+        "uniqueUsers": 104617,
+        "sessions": 1042752,
+        "weeklyRetentionPercent": 69,
+        "costPerSessionUsd": 0.0887,
+        "cachedInputPercent": 94.7
+      }
+    },
+    "kimi-k3.1-pro": {
+      "path": "moonshotai/kimi-k3-1-pro",
+      "name": "Kimi K3.1 Pro",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 17,
+        "contextWindow": 92,
+        "multimodal": 50,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 1048576,
+        "inputModalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": true,
+        "releaseDate": "2026-10-23"
+      },
+      "usage": {
+        "rankLastWeek": 27,
+        "tokens": 649077364765,
+        "sharePercent": 0.04,
+        "uniqueUsers": 110576,
+        "sessions": 300958,
+        "weeklyRetentionPercent": 55,
+        "costPerSessionUsd": 0.8458,
+        "cachedInputPercent": 98.5
+      }
+    },
+    "gemini-4-argon": {
+      "path": "google/gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 7,
+        "contextWindow": 92,
+        "multimodal": 83,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 65536,
+        "inputModalities": [
+          "text",
+          "image",
+          "video",
+          "audio",
+          "pdf"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-10-13"
+      },
+      "usage": {
+        "rankLastWeek": 24,
+        "tokens": 774761719468,
+        "sharePercent": 0.05,
+        "uniqueUsers": 132132,
+        "sessions": 591837,
+        "weeklyRetentionPercent": 66.2,
+        "costPerSessionUsd": 0.6513,
+        "cachedInputPercent": 85.8
+      }
+    },
+    "hy4": {
+      "path": "tencent/hy4",
+      "name": "Hy4",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 41,
+        "contextWindow": 92,
+        "multimodal": 33,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 65536,
+        "inputModalities": [
+          "text",
+          "image"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-11-04"
+      },
+      "usage": {
+        "rankLastWeek": 23,
+        "tokens": 747392963967,
+        "sharePercent": 0.05,
+        "uniqueUsers": 32174,
+        "sessions": 113500,
+        "weeklyRetentionPercent": 65.2,
+        "costPerSessionUsd": 0.5194,
+        "cachedInputPercent": 97.2
+      }
+    },
+    "longcat-2.5-free": {
+      "path": "meituan/longcat-2-5",
+      "name": "LongCat-2.5",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 55,
+        "contextWindow": 80,
+        "multimodal": 33,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 262144,
+        "inputModalities": [
+          "text",
+          "image"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-11-02"
+      },
+      "usage": {
+        "rankLastWeek": 22,
+        "tokens": 743273864810,
+        "sharePercent": 0.05,
+        "uniqueUsers": 53851,
+        "sessions": 438570,
+        "weeklyRetentionPercent": null,
+        "costPerSessionUsd": 0,
+        "cachedInputPercent": 95.3
+      }
+    },
+    "hy4-flash-free": {
+      "path": "tencent/hy4-flash",
+      "name": "Hy4 flash",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 86,
+        "contextWindow": 92,
+        "multimodal": 33,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1048576,
+        "outputTokens": 65536,
+        "inputModalities": [
+          "text",
+          "image"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-11-16"
+      },
+      "usage": {
+        "rankLastWeek": 2,
+        "tokens": 8881236205779,
+        "sharePercent": 0.59,
+        "uniqueUsers": 68900,
+        "sessions": 2182159,
+        "weeklyRetentionPercent": null,
+        "costPerSessionUsd": 0,
+        "cachedInputPercent": 96.6
+      }
+    },
+    "qwen4-max": {
+      "path": "alibaba/qwen4-max",
+      "name": "Qwen4 Max",
+      "updatedAt": "2026-11-18T12:09:50.000Z",
+      "aspects": {
+        "reasoning": 50,
+        "coding": 50,
+        "costEfficiency": 29,
+        "contextWindow": 80,
+        "multimodal": 67,
+        "toolUse": 50
+      },
+      "aspectNotes": {
+        "reasoning": "Reasoning supported; no comparable benchmark",
+        "coding": "No data; neutral placeholder",
+        "costEfficiency": null,
+        "contextWindow": null,
+        "multimodal": null,
+        "toolUse": "Tool calling supported; no comparable benchmark"
+      },
+      "benchmarks": [],
+      "facts": {
+        "contextTokens": 1000000,
+        "outputTokens": 262144,
+        "inputModalities": [
+          "text",
+          "image",
+          "video",
+          "pdf"
+        ],
+        "outputModalities": [
+          "text"
+        ],
+        "reasoning": true,
+        "toolCall": true,
+        "openWeights": false,
+        "releaseDate": "2026-11-16"
+      },
+      "usage": {
+        "rankLastWeek": 30,
+        "tokens": 62852632547,
+        "sharePercent": 0,
+        "uniqueUsers": 10665,
+        "sessions": 40682,
+        "weeklyRetentionPercent": null,
+        "costPerSessionUsd": 0.3351,
+        "cachedInputPercent": 98.6
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 // Network boundary: validate responses here so the rest of the app can trust
 // the data. Every request has a timeout and surfaces its own failures.
 
-import { API, REQUEST_TIMEOUT_MS } from "./config.js";
+import { API, OPENCODE_DATA_URL, REQUEST_TIMEOUT_MS } from "./config.js";
 
 async function fetchJson(url, { headers = {} } = {}) {
 	const controller = new AbortController();
@@ -26,20 +26,12 @@ export async function fetchModels() {
 	return payload.data;
 }
 
-// Both score feeds come from the same provider (OpenRouter Data API). Fetch
-// them together so a slow or failed feed cannot hold up the other.
-export async function fetchScores(key) {
-	const headers = { Authorization: `Bearer ${key}` };
-	const intelligenceUrl = `${API.scores}?source=${API.intelligenceSource}&max_results=${API.maxResults}`;
-	const designUrl = `${API.scores}?source=${API.designSource}&arena=models&category=uicomponent&max_results=${API.maxResults}`;
-
-	const [intelligence, design] = await Promise.all([
-		fetchJson(intelligenceUrl, { headers }),
-		fetchJson(designUrl, { headers }),
-	]);
-
-	return {
-		intelligence: Array.isArray(intelligence?.data) ? intelligence.data : [],
-		design: Array.isArray(design?.data) ? design.data : [],
-	};
+// The snapshot is same-origin and needs no credentials. A missing file means
+// the fetch script has not been run yet; the caller explains that to the user.
+export async function fetchOpenCodeScores() {
+	const snapshot = await fetchJson(OPENCODE_DATA_URL);
+	if (!snapshot || typeof snapshot !== "object" || typeof snapshot.models !== "object") {
+		throw new Error("OpenCode scores snapshot is incomplete");
+	}
+	return snapshot;
 }

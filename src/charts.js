@@ -1,5 +1,7 @@
-// Scatter chart for score vs Go requests. Rendered as inline SVG; callers pass
-// the rows they want plotted so charts stay independent of app state.
+// Inline SVG scatter charts. Callers pass rows and axis configuration so the
+// charts stay independent of app state.
+
+import { BADGES } from "./config.js";
 
 function esc(value) {
 	return String(value)
@@ -9,100 +11,174 @@ function esc(value) {
 		.replace(/"/g, "&quot;");
 }
 
-export function renderScatter(hostId, rows, metric, label, { loading = false } = {}) {
+function compact(value) {
+	if (value >= 1e12) return `${(value / 1e12).toFixed(value >= 1e13 ? 0 : 1)}T`;
+	if (value >= 1e9) return `${(value / 1e9).toFixed(value >= 1e10 ? 0 : 1)}B`;
+	if (value >= 1e6) return `${(value / 1e6).toFixed(value >= 1e7 ? 0 : 1)}M`;
+	if (value >= 1e3) return `${(value / 1e3).toFixed(value >= 1e4 ? 0 : 1)}K`;
+	return String(Math.round(value));
+}
+
+function median(values) {
+	const sorted = [...values].sort((a, b) => a - b);
+	const middle = Math.floor(sorted.length / 2);
+	return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+}
+
+function renderScatter(hostId, rows, options) {
+	const {
+		caption,
+		getX,
+		getTip,
+		quadrants,
+		includeInfinity = false,
+		loading = false,
+		scale = "log",
+		domain = [0, 100],
+		xTicks = [0, 25, 50, 75, 100],
+		yTicks = [0, 25, 50, 75, 100],
+		maxTicks = 12,
+		width: W = 760,
+		height: H = 300,
+	} = options;
 	const host = document.getElementById(hostId);
-	const points = rows.filter((row) => row[metric] != null && row.go_requests_5h != null);
+	const isLog = scale === "log";
+	const points = rows
+		.map((row) => ({ row, score: row.score, value: getX(row) }))
+		.filter((point) => {
+			if (point.score == null) return false;
+			if (point.value === Infinity) return includeInfinity;
+			return Number.isFinite(point.value) && (isLog ? point.value > 0 : point.value >= 0);
+		});
+
 	if (!points.length) {
-		// While loading with no data, leave the host empty so :empty shimmer
-		// reserves the chart's space.
-		if (!loading || rows.length) host.innerHTML = `<div class="empty">No scored models.</div>`;
+		if (!loading || rows.length) host.innerHTML = `<div class="empty">No scored models with chart data.</div>`;
 		return;
 	}
 
-	const finite = points.filter((point) => Number.isFinite(point.go_requests_5h));
-	let lo = finite.length ? Math.min(...finite.map((point) => point.go_requests_5h)) : 1;
-	let hi = finite.length ? Math.max(...finite.map((point) => point.go_requests_5h)) : 10;
+	const finite = points.filter((point) => Number.isFinite(point.value));
+	const values = finite.map((point) => (isLog ? Math.log10(point.value) : point.value));
+	let lo = isLog ? Math.min(...values) : domain[0];
+	let hi = isLog ? Math.max(...values) : domain[1];
 	if (hi <= lo) {
-		lo /= 2;
-		hi *= 2;
+		lo -= 1;
+		hi += 1;
 	}
 
-	const W = 760;
-	const H = 300;
 	const ml = 48;
-	const mr = 16;
-	const mt = 12;
-	const mb = 40;
-	const slot = 34;
-	const plotW = W - ml - mr - slot;
-	const X = (requests) =>
-		ml + (1 - (Math.log(requests) - Math.log(lo)) / (Math.log(hi) - Math.log(lo))) * plotW;
+	const mr = 20;
+	const mt = 16;
+	const mb = 42;
+	const plotW = W - ml - mr;
+	const plotH = H - mt - mb;
+	const X = (value) => ml + (((isLog ? Math.log10(value) : value) - lo) / (hi - lo)) * plotW;
+	const linearX = (value) => ml + ((value - lo) / (hi - lo)) * plotW;
 	const XINF = W - mr - 6;
-	const Y = (score) => mt + (1 - score / 100) * (H - mt - mb);
-	const px = (point) => (point.inf ? XINF : X(point.row.go_requests_5h));
-	const byReq = (point) => (point.inf ? Infinity : point.row.go_requests_5h);
+	const Y = (score) => mt + (1 - score / 100) * plotH;
+	const medianX = median(values);
 
-	const ticks = [];
-	for (let exponent = Math.floor(Math.log10(lo)); exponent <= Math.ceil(Math.log10(hi)) && ticks.length < 10; exponent++) {
-		for (const factor of [1, 2, 5]) {
-			const tick = factor * 10 ** exponent;
-			if (tick >= lo && tick <= hi) ticks.push(tick);
+	const ticks = isLog ? [] : xTicks;
+	if (isLog) {
+		for (let exponent = Math.floor(lo); exponent <= Math.ceil(hi) && ticks.length < maxTicks; exponent++) {
+			for (const factor of [1, 2, 5]) {
+				const tick = factor * 10 ** exponent;
+				if (tick >= 10 ** lo && tick <= 10 ** hi) ticks.push(tick);
+			}
 		}
 	}
-
-	const plotted = points.map((row) => ({ row, inf: !Number.isFinite(row.go_requests_5h), score: row[metric] }));
-	const sorted = [...plotted].sort((a, b) => byReq(a) - byReq(b));
-
-	// Keep only the best point per request level, then walk upward to build the
-	// Pareto frontier shown in the chart.
-	const perRequest = new Map();
-	for (const point of sorted) {
-		const key = point.inf ? "inf" : point.row.go_requests_5h;
-		const existing = perRequest.get(key);
-		if (!existing || point.score > existing.score) perRequest.set(key, point);
-	}
-	const frontier = [];
-	let bestScore = -Infinity;
-	for (const point of [...perRequest.values()].sort((a, b) => byReq(a) - byReq(b))) {
-		if (point.score > bestScore + 1e-9) {
-			frontier.push(point);
-			bestScore = point.score;
-		}
-	}
-	const frontierSet = new Set(frontier);
 
 	const f = (number) => number.toFixed(1);
-	let frontierPath = "";
-	frontier.forEach((point, index) => {
-		frontierPath += index ? ` H${f(px(point))} V${f(Y(point.score))}` : `M${f(px(point))} ${f(Y(point.score))}`;
-	});
-
-	let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)} versus requests scatter plot">`;
-	svg += `<line class="axis" x1="${ml}" y1="${mt}" x2="${ml}" y2="${H - mb}"/><line class="axis" x1="${ml}" y1="${H - mb}" x2="${W - mr}" y2="${H - mb}"/>`;
+	let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(caption)}">`;
+	svg += `<line class="axis" x1="${ml}" y1="${mt}" x2="${ml}" y2="${H - mb}"/>`;
+	svg += `<line class="axis" x1="${ml}" y1="${H - mb}" x2="${W - mr}" y2="${H - mb}"/>`;
 	for (const tick of ticks) {
+		const x = isLog ? X(tick) : linearX(tick);
 		svg +=
-			`<line class="tick" x1="${f(X(tick))}" y1="${H - mb}" x2="${f(X(tick))}" y2="${H - mb + 5}"/>` +
-			`<text x="${f(X(tick))}" y="${H - mb + 18}" text-anchor="middle">${tick >= 1000 ? `${tick / 1000}k` : tick}</text>`;
+			`<line class="tick" x1="${f(x)}" y1="${H - mb}" x2="${f(x)}" y2="${H - mb + 4}"/>` +
+			`<text x="${f(x)}" y="${H - mb + 18}" text-anchor="middle">${isLog ? compact(tick) : `${tick}%`}</text>`;
 	}
-	svg += `<line class="tick" x1="${f(XINF)}" y1="${H - mb}" x2="${f(XINF)}" y2="${H - mb + 5}"/><text x="${f(XINF)}" y="${H - mb + 18}" text-anchor="middle">∞</text>`;
-	for (const score of [0, 25, 50, 75, 100]) {
+	if (includeInfinity) {
+		svg += `<text x="${XINF}" y="${H - mb + 18}" text-anchor="middle">∞</text>`;
+	}
+	for (const score of yTicks) {
 		svg +=
 			`<text x="${ml - 8}" y="${f(Y(score) + 3)}" text-anchor="end">${score}</text>` +
 			`<line class="tick" x1="${ml - 5}" y1="${f(Y(score))}" x2="${ml}" y2="${f(Y(score))}"/>`;
 	}
-	svg += `<text x="${(ml + W - mr) / 2}" y="${H - 4}" text-anchor="middle">Go req/5h (log scale)</text>`;
-	if (frontierPath) svg += `<path class="frontier" d="${frontierPath}"/>`;
 
-	for (const point of plotted) {
-		const isFrontier = frontierSet.has(point);
-		const requestText = point.inf ? "∞ req/5h" : `${point.row.go_requests_5h} req/5h`;
-		const monthly = point.row.go_monthly_limit;
-		const monthlyText = monthly == null ? "—" : monthly === Infinity ? "∞" : `$${monthly}/mo`;
-		const tip = `${point.row.model} · ${label} ${Math.round(point.score)} · ${requestText} · ${monthlyText}`;
-		svg += `<circle class="pt${isFrontier ? " front" : ""}" cx="${f(px(point))}" cy="${f(Y(point.score))}" r="${isFrontier ? 6 : 5}" data-tip="${esc(tip)}"/>`;
+	const medianXPos = isLog
+		? ml + ((medianX - lo) / (hi - lo)) * plotW
+		: linearX(medianX);
+	svg += `<line class="quadrant-line" x1="${f(medianXPos)}" y1="${mt}" x2="${f(medianXPos)}" y2="${H - mb}"/>`;
+	svg += `<line class="quadrant-line" x1="${ml}" y1="${f(Y(50))}" x2="${W - mr}" y2="${f(Y(50))}"/>`;
+	svg += `<text class="quadrant-label" x="${ml + 8}" y="${mt + 12}">${esc(quadrants.topLeft)}</text>`;
+	svg += `<text class="quadrant-label" x="${W - mr - 8}" y="${mt + 12}" text-anchor="end">${esc(quadrants.topRight)}</text>`;
+	svg += `<text class="quadrant-label" x="${ml + 8}" y="${H - mb - 8}">${esc(quadrants.bottomLeft)}</text>`;
+	svg += `<text class="quadrant-label" x="${W - mr - 8}" y="${H - mb - 8}" text-anchor="end">${esc(quadrants.bottomRight)}</text>`;
+
+	for (const point of points) {
+		const infinite = point.value === Infinity;
+		const cx = infinite ? XINF : X(point.value);
+		const highX = infinite || (isLog ? Math.log10(point.value) >= medianX : point.value >= medianX);
+		const quadrant = point.score >= 50 ? (highX ? "leaders" : "premium") : highX ? "bulk" : "niche";
+		const badges = (point.row.badges || []).join(",");
+		svg +=
+			`<circle class="pt ${quadrant}" cx="${f(cx)}" cy="${f(Y(point.score))}" r="6" ` +
+			`data-model="${esc(point.row.model)}" data-badges="${esc(badges)}" data-tip="${esc(getTip(point.row))}"/>`;
 	}
 	svg += `</svg>`;
 	host.innerHTML = svg;
+}
+
+export function renderCapacity(hostId, rows, options = {}) {
+	renderScatter(hostId, rows, {
+		caption: "Score versus estimated 5-hour request capacity",
+		width: 760,
+		height: 220,
+		yTicks: [0, 50, 100],
+		maxTicks: 6,
+		includeInfinity: true,
+		quadrants: { topLeft: "Constrained", topRight: "Leaders", bottomLeft: "Niche", bottomRight: "Workhorses" },
+		getX: (row) => row.go_requests_5h,
+		getTip: (row) =>
+			`Score ${Math.round(row.score)} · ${row.go_requests_5h === Infinity ? "∞" : compact(row.go_requests_5h)} req/5h · $${row.blended_price?.toFixed(2)}/1M`,
+		...options,
+	});
+}
+
+export function renderAdoption(hostId, rows, options = {}) {
+	renderScatter(hostId, rows, {
+		caption: "Score versus weekly OpenCode token usage",
+		width: 560,
+		height: 240,
+		quadrants: { topLeft: "Hidden gems", topRight: "Leaders", bottomLeft: "Niche", bottomRight: "Overused" },
+		getX: (row) => row.modelData?.usage?.tokens,
+		getTip: (row) =>
+			`Score ${Math.round(row.score)} · ${compact(row.modelData?.usage?.tokens ?? 0)} tokens · ${compact(row.modelData?.usage?.uniqueUsers ?? 0)} users`,
+		...options,
+	});
+}
+
+export function renderRetention(hostId, rows, options = {}) {
+	renderScatter(hostId, rows, {
+		caption: "Score versus weekly user retention",
+		scale: "linear",
+		domain: [40, 100],
+		xTicks: [40, 50, 60, 70, 80, 90, 100],
+		width: 560,
+		height: 240,
+		yTicks: [0, 50, 100],
+		quadrants: {
+			topLeft: "Hype",
+			topRight: "Trusted leaders",
+			bottomLeft: "Niche",
+			bottomRight: "Sticky workhorses",
+		},
+		getX: (row) => row.modelData?.usage?.weeklyRetentionPercent,
+		getTip: (row) =>
+			`Retention ${row.modelData?.usage?.weeklyRetentionPercent}% · Score ${Math.round(row.score)} · ${compact(row.modelData?.usage?.tokens ?? 0)} tokens`,
+		...options,
+	});
 }
 
 export function bindChartTip(hostId, tipId) {
@@ -114,15 +190,32 @@ export function bindChartTip(hostId, tipId) {
 			if (tip) tip.style.display = "none";
 			return;
 		}
-		tip.textContent = circle.dataset.tip;
+		buildTip(tip, circle);
 		const frame = tip.offsetParent && tip.offsetParent !== document.body ? tip.offsetParent : host;
 		const rect = frame.getBoundingClientRect();
 		tip.style.display = "block";
-		tip.style.left = `${Math.max(0, Math.min(event.clientX - rect.left + 14, rect.width - 220))}px`;
+		tip.style.left = `${Math.max(0, Math.min(event.clientX - rect.left + 14, rect.width - 240))}px`;
 		tip.style.top = `${event.clientY - rect.top + 12}px`;
 	});
 	host.addEventListener("mouseleave", () => {
 		const tip = document.getElementById(tipId);
 		if (tip) tip.style.display = "none";
 	});
+}
+
+function buildTip(tip, circle) {
+	tip.replaceChildren();
+	const title = document.createElement("strong");
+	title.textContent = circle.dataset.model || "";
+	tip.appendChild(title);
+	for (const badge of (circle.dataset.badges || "").split(",").filter(Boolean)) {
+		const span = document.createElement("span");
+		span.className = "tip-badge";
+		span.textContent = BADGES[badge] || badge;
+		tip.appendChild(span);
+	}
+	const detail = document.createElement("span");
+	detail.className = "tip-detail";
+	detail.textContent = circle.dataset.tip || "";
+	tip.appendChild(detail);
 }

@@ -1,36 +1,65 @@
-// Endpoints and fixed product data. Secrets never live here; the OpenRouter
-// key is supplied by the user at runtime and kept in local storage.
+// Endpoints and fixed product data. No credentials are required.
 
 export const API = {
 	models: "https://opencode.ai/inference/go/v1/models",
-	scores: "https://openrouter.ai/api/v1/benchmarks",
-	intelligenceSource: "artificial-analysis",
-	designSource: "design-arena",
-	maxResults: 100,
 };
 
 export const REQUEST_TIMEOUT_MS = 12000;
 
-export const STORAGE_KEYS = {
-	openRouterKey: "opencode-model-explorer:openrouter-key",
+// Snapshot written by `bun scripts/fetch-opencode-data.ts`. OpenCode Data has
+// no CORS headers, so the explorer loads it from its own origin.
+export const OPENCODE_DATA_URL = "./data/opencode-scores.json";
+
+// The only Score formula: Coding and Tool use carry 30% each, the other four
+// aspects make up the remaining 40%.
+export const SCORE_WEIGHTS = {
+	reasoning: 15,
+	coding: 30,
+	costEfficiency: 10,
+	contextWindow: 10,
+	multimodal: 5,
+	toolUse: 30,
 };
 
-export const PRESETS = {
-	budget: { label: "Budget", wQ: 0.3, wT: 0.2, wC: 0.5 },
-	balanced: { label: "Balanced", wQ: 0.5, wT: 0.25, wC: 0.25 },
-	quality: { label: "Max quality", wQ: 0.8, wT: 0.15, wC: 0.05 },
+// A model is "new" for this many days after its release date.
+export const NEW_MODEL_DAYS = 14;
+
+export const BADGES = {
+	new: "New",
+	limited: "Limited-time",
 };
 
 export const COLUMNS = [
 	{ key: "model", label: "Model", type: "text", align: "left" },
-	{ key: "go_requests_5h", label: "Go req/5h", type: "num", align: "right" },
-	{ key: "go_plus_requests_5h", label: "Go+ req/5h", type: "num", align: "right" },
-	{ key: "go_monthly_limit", label: "Go $/mo", type: "num", align: "right" },
-	{ key: "intelligence", label: "Intelligence", type: "bar-i", align: "right" },
-	{ key: "design", label: "Design", type: "bar-d", align: "right" },
-	{ key: "quality", label: "Quality", type: "bar-q", align: "right" },
-	{ key: "efficiency", label: "Q/$", type: "num", align: "right" },
-	{ key: "value", label: "Value", type: "num", align: "right" },
+	{
+		key: "score",
+		label: "Score",
+		type: "bar-s",
+		align: "right",
+		description: "Weighted mean of OpenCode's six aspect scores, 0-100",
+	},
+	{
+		key: "value",
+		label: "Value",
+		type: "num",
+		align: "right",
+		digits: 1,
+		description: "Half Score, half log-scaled 5-hour request capacity",
+	},
+	{
+		key: "scorePerDollar",
+		label: "Score/$",
+		type: "num",
+		align: "right",
+		description: "Score divided by the average input/output price per 1M tokens",
+	},
+	{
+		key: "go_requests_5h",
+		label: "Go req/5h",
+		type: "num",
+		align: "right",
+		description: "Estimated requests in five hours from allowance and token prices",
+	},
 ];
 
 // The OpenCode console estimates 5h request allowances from the monthly
