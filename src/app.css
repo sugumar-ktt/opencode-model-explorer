@@ -1,0 +1,785 @@
+/* Noph UI's default theme supplies all color, shape, elevation and motion tokens. */
+:root {
+	--page-max: 1200px;
+}
+
+* {
+	box-sizing: border-box;
+}
+html {
+	scrollbar-gutter: stable;
+	scroll-behavior: smooth;
+}
+body {
+	margin: 0;
+	background: var(--np-color-surface);
+	color: var(--np-color-on-surface);
+	font-family: "Geist", system-ui, -apple-system, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	font-variant-numeric: tabular-nums;
+}
+.shell {
+	max-width: var(--page-max);
+	margin-inline: auto;
+	width: 100%;
+}
+
+/* Native controls styled to Material 3 */
+.button-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 18px;
+	height: 18px;
+	flex: none;
+}
+.button-icon svg {
+	width: 18px;
+	height: 18px;
+	display: block;
+}
+.search-field {
+	width: min(360px, 100%);
+}
+
+/* Header */
+header {
+	background: var(--np-color-surface);
+	border-bottom: 1px solid var(--np-color-outline-variant);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+header .header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 12px 24px;
+}
+header h1 {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 500;
+	letter-spacing: -0.01em;
+}
+header h1 span {
+	color: var(--np-color-primary);
+}
+#refresh {
+	flex: none;
+}
+
+/* Brand lockup */
+header.app-bar .np-app-bar-row {
+	flex: 1 1 auto;
+	width: 100%;
+	max-width: var(--page-max);
+	margin-inline: auto;
+	padding-inline: 24px;
+}
+.brand-mark {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	flex: none;
+	border-radius: 8px;
+	background: var(--np-color-primary);
+	color: var(--np-color-on-primary);
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+/* Section navigation: quiet tabs, active underline */
+.section-nav {
+	position: sticky;
+	top: var(--app-bar-height, 64px);
+	z-index: 9;
+	background: var(--np-color-surface);
+	border-bottom: 1px solid var(--np-color-outline-variant);
+}
+.section-nav .inner {
+	display: flex;
+	align-items: stretch;
+	gap: 2px;
+	padding: 0 24px;
+	overflow-x: auto;
+	scrollbar-width: none;
+	scroll-padding-inline: 24px;
+}
+.section-nav .inner::-webkit-scrollbar {
+	display: none;
+}
+.section-nav .tab {
+	display: inline-flex;
+	align-items: center;
+	padding: 10px 12px;
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--np-color-on-surface-variant);
+	text-decoration: none;
+	white-space: nowrap;
+	border-bottom: 2px solid transparent;
+}
+.section-nav .tab:hover {
+	color: var(--np-color-on-surface);
+}
+.section-nav .tab:focus-visible {
+	outline: 2px solid var(--np-color-primary);
+	outline-offset: -2px;
+	border-radius: 4px;
+}
+.section-nav .tab[aria-current] {
+	color: var(--np-color-on-surface);
+	border-bottom-color: var(--np-color-primary);
+}
+.nav-progress {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	--np-linear-progress-track-height: 2px;
+	--np-linear-progress-active-indicator-height: 2px;
+	--np-linear-progress-track-color: transparent;
+}
+#capacity,
+#picks,
+#adoption,
+#retention,
+#aspects,
+#models,
+#method {
+	scroll-margin-top: calc(var(--app-bar-height, 64px) + 43px + 12px);
+}
+
+/* Controls */
+.controls {
+	border-bottom: 1px solid var(--np-color-outline-variant);
+}
+.controls .inner {
+	padding: 12px 24px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	min-height: 64px;
+}
+.status {
+	margin: 0;
+	font-size: 12px;
+	color: var(--np-color-on-surface-variant);
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+.status.err {
+	color: var(--np-color-error);
+}
+/* Main layout */
+main {
+	padding: 8px 24px 40px;
+}
+
+/* Charts sit on the canvas: no cards, full-width plots */
+.charts {
+	margin: 0;
+	padding: 20px 0 4px;
+	min-width: 0;
+}
+.chart-section-head {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin-bottom: 4px;
+}
+.chart-section-head h2 {
+	margin: 0;
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+.chart-sub {
+	margin: 0;
+	font-size: 12px;
+	color: var(--np-color-on-surface-variant);
+}
+.chart {
+	display: flex;
+	justify-content: stretch;
+	min-width: 0;
+}
+.chart figure {
+	width: 100%;
+	margin: 0;
+}
+.chart svg {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+#capacity .chart:empty {
+	aspect-ratio: auto;
+	height: 280px;
+}
+#adoption .chart:empty,
+#retention .chart:empty {
+	aspect-ratio: auto;
+	height: 240px;
+}
+.chart .empty {
+	min-height: 200px;
+	display: grid;
+	place-items: center;
+}
+#capacity .empty {
+	min-height: 280px;
+}
+#adoption .empty,
+#retention .empty {
+	min-height: 240px;
+}
+.chart:empty {
+	aspect-ratio: 760 / 300;
+	width: 100%;
+	border-radius: 8px;
+	background: var(--np-color-surface-container);
+}
+body.indicators .chart:empty {
+	background: linear-gradient(
+		90deg,
+		var(--md-surface-variant, var(--np-color-outline-variant)) 25%,
+		var(--np-color-outline-variant) 50%,
+		var(--md-surface-variant, var(--np-color-outline-variant)) 75%
+	);
+	background-size: 200% 100%;
+	animation: shimmer 1.2s linear infinite;
+}
+.svelteplot-tooltip {
+	background: var(--np-color-surface-container-high);
+	color: var(--np-color-on-surface);
+	border: 1px solid var(--np-color-outline-variant);
+	border-radius: var(--np-shape-corner-small);
+	padding: 8px 10px;
+	box-shadow: var(--np-elevation-2);
+	min-width: 160px;
+	max-width: 220px;
+	white-space: nowrap;
+	overflow: hidden;
+	transform: translate(-50%, calc(-100% - 10px));
+	z-index: 20;
+}
+.svelteplot-tooltip.hide {
+	display: none;
+}
+.chart-tip-content {
+	display: block;
+	font-size: 12px;
+	line-height: 1.35;
+}
+.chart-tip-content strong {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.tip-metric {
+	display: block;
+	color: var(--np-color-on-surface-variant);
+	white-space: nowrap;
+}
+@media (max-width: 700px) {
+	.svelteplot-tooltip {
+		min-width: 132px;
+		max-width: 180px;
+	}
+}
+
+/* Insights: top picks and a pair of secondary charts */
+.chart-pair {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+	margin: 0;
+}
+.picks {
+	width: 100%;
+	min-width: 0;
+}
+.picks-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 8px;
+	margin-bottom: 8px;
+}
+.picks-head h2 {
+	margin: 0;
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+.sweep-badge {
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--np-color-primary);
+	white-space: nowrap;
+}
+.picks-note {
+	font-size: 12px;
+	color: var(--np-color-on-surface-variant);
+}
+.pick {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 2px 12px;
+	padding: 10px 0;
+	border-top: 1px solid var(--np-color-outline-variant);
+}
+.pick-label {
+	grid-column: 1 / -1;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--np-color-on-surface-variant);
+}
+.pick-model {
+	font-size: 13px;
+	font-weight: 600;
+}
+.pick-metric {
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+	font-weight: 600;
+	white-space: nowrap;
+}
+.pick-next {
+	grid-column: 1 / -1;
+	font-size: 12px;
+	color: var(--np-color-on-surface-variant);
+}
+
+/* Badges */
+.badge {
+	display: inline-block;
+	margin-left: 6px;
+	padding: 1px 6px;
+	border-radius: 4px;
+	font-size: 11px;
+	font-weight: 500;
+	white-space: nowrap;
+	vertical-align: baseline;
+}
+.badge-new {
+	background: var(--np-color-primary-container);
+	color: var(--np-color-on-primary-container);
+}
+.badge-limited {
+	background: var(--np-color-secondary-container);
+	color: var(--np-color-on-secondary-container);
+}
+
+/* Aspect heatmap */
+.heatmap-section {
+	margin: 12px 0;
+}
+.heatmap-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+	flex-wrap: wrap;
+	margin-bottom: 8px;
+}
+.heatmap-card {
+	width: 100%;
+}
+.heatmap-head h2 {
+	margin: 0;
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+.heatmap-head p {
+	margin: 0;
+	font-size: 12px;
+	color: var(--np-color-on-surface-variant);
+}
+.heat-legend {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.heatmap-scroll {
+	max-width: 100%;
+	overflow-x: auto;
+}
+.heatmap-scroll > * {
+	min-width: 560px;
+}
+.heatmap-skeleton {
+	display: grid;
+	gap: 6px;
+	padding: 12px 16px 16px 230px;
+	min-height: 413px;
+}
+.heatmap-skeleton .skel {
+	height: 24px;
+}
+.heat-swatch {
+	display: inline-block;
+	width: 54px;
+	height: 8px;
+	border-radius: 999px;
+	background: linear-gradient(90deg, #f5efff, #7c4dff, #2b0b5e);
+	border: 1px solid var(--np-color-outline-variant);
+}
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Table: plain ledger, no card chrome */
+/* Consistent section rhythm: every major block shares one divider treatment */
+main > .charts,
+main > .chart-pair,
+main > #picks,
+main > #aspects,
+main > #models,
+main > .method {
+	border-top: 1px solid var(--np-color-outline-variant);
+	margin-top: 24px;
+	padding-top: 24px;
+}
+main > .charts:first-child {
+	border-top: 0;
+	margin-top: 0;
+	padding-top: 20px;
+}
+.table-scroll {
+	overflow-x: auto;
+	scrollbar-width: thin;
+}
+main.is-loading #models .table-scroll {
+	min-height: min(55vh, 520px);
+}
+table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	font-size: 13px;
+	background: transparent;
+}
+th,
+td {
+	padding: 10px 14px;
+	text-align: left;
+	border-bottom: 1px solid var(--np-color-outline-variant);
+	white-space: nowrap;
+}
+th {
+	font-weight: 500;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--np-color-on-surface-variant);
+	background: var(--np-color-surface-container);
+	cursor: pointer;
+	user-select: none;
+}
+th:hover {
+	color: var(--np-color-on-surface);
+}
+th .arrow {
+	margin-left: 4px;
+	opacity: 0.5;
+}
+th.sorted .arrow {
+	opacity: 1;
+	color: var(--np-color-primary);
+}
+tbody tr:hover {
+	background: color-mix(in srgb, var(--np-color-on-surface) 6%, transparent);
+}
+td.model {
+	font-weight: 500;
+}
+td.num {
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+.score {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	justify-content: flex-end;
+}
+.score:focus-visible,
+.val[tabindex]:focus-visible {
+	outline: 2px solid var(--np-color-primary);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+.bar {
+	display: inline-block;
+	width: 64px;
+	height: 8px;
+	background: var(--np-color-outline-variant);
+	border-radius: 999px;
+	overflow: hidden;
+}
+.bar > span {
+	display: block;
+	height: 100%;
+	border-radius: 999px;
+}
+.bar.s > span {
+	background: var(--np-color-primary);
+}
+.val {
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+button.val {
+	border: 0;
+	padding: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-weight: 600;
+	cursor: default;
+}
+button.val:focus-visible {
+	outline: 2px solid var(--np-color-primary);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+.val.none {
+	color: var(--np-color-on-surface-variant);
+	font-weight: 400;
+}
+
+/* Loading and empty states */
+.skel-row td {
+	padding: 10px 14px;
+	border-bottom: 1px solid var(--np-color-outline-variant);
+}
+/* Skeleton rows approximate the loaded row pitch to avoid a small shift. */
+#tbody .skel-row {
+	height: 40.39px;
+}
+.skel {
+	display: block;
+	height: 1.5em;
+	border-radius: 6px;
+	background: var(--np-color-outline-variant);
+}
+body.indicators .skel {
+	background: linear-gradient(
+		90deg,
+		var(--np-color-outline-variant) 25%,
+		var(--np-color-on-surface-variant) 50%,
+		var(--np-color-outline-variant) 75%
+	);
+	background-size: 200% 100%;
+	animation: shimmer 1.2s linear infinite;
+}
+@keyframes shimmer {
+	to {
+		background-position: -200% 0;
+	}
+}
+.empty {
+	text-align: center;
+	padding: 40px 20px;
+	color: var(--np-color-on-surface-variant);
+}
+
+/* Methodology: plain disclosure on a hairline */
+.method {
+	width: 100%;
+	font-size: 13px;
+	color: var(--np-color-on-surface-variant);
+}
+.method h2 {
+	margin: 0 0 4px;
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	color: var(--np-color-on-surface);
+}
+.method summary {
+	cursor: pointer;
+	font-weight: 500;
+	color: var(--np-color-on-surface);
+}
+.method summary:focus-visible {
+	outline: 2px solid var(--np-color-primary);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+.method p {
+	margin: 10px 0 0;
+	max-width: 90ch;
+}
+
+@media (max-width: 900px) {
+	.chart-pair {
+		grid-template-columns: 1fr;
+	}
+}
+@media (max-width: 700px) {
+	header .header-inner,
+	.controls .inner {
+		padding: 12px 16px;
+	}
+	header.app-bar .np-app-bar-row {
+		padding-inline: 16px;
+	}
+	main {
+		padding: 12px 16px 32px;
+	}
+	.controls .inner {
+		justify-content: flex-start;
+	}
+	.search-field {
+		width: 100%;
+	}
+	.section-nav .inner {
+		padding-inline: 16px;
+		scroll-padding-inline: 16px;
+	}
+	/* Skeleton hero must match the wrapped loaded hero height at narrow. */
+	body.indicators #picks .pick.hero {
+		min-height: 124px;
+	}
+	#thead th:nth-child(4),
+	#thead th:nth-child(5),
+	#tbody td:nth-child(4),
+	#tbody td:nth-child(5) {
+		display: none;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	body.indicators .skel,
+	body.indicators .chart:empty {
+		animation: none;
+	}
+	.search-field {
+		transition: none;
+	}
+}
+
+/* Editorial rhythm: quiet sections, one accent, restrained motion */
+.section-title {
+	margin: 0;
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+.section-head {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin: 0 0 8px;
+}
+.section-sub {
+	margin: 0;
+	font-size: 12px;
+	color: var(--np-color-on-surface-variant);
+}
+.app-bar {
+	background-image: none;
+}
+header.app-bar .np-app-bar-headline {
+	color: var(--np-color-on-surface);
+	font-weight: 700;
+	font-size: 20px;
+	letter-spacing: -0.02em;
+}
+header.app-bar .np-app-bar-subtitle {
+	color: var(--np-color-on-surface-variant);
+}
+.pick.hero {
+	padding: 12px 0 4px;
+}
+.pick.hero .pick-model {
+	font-size: 15px;
+}
+.pick-metrics {
+	grid-column: 1 / -1;
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 16px;
+	row-gap: 2px;
+	margin-top: 6px;
+}
+.pick-metrics .metric {
+	padding: 0;
+	font-size: 13px;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	color: var(--np-color-on-surface);
+	background: none;
+	border: 0;
+}
+.pick-metrics .metric.skel {
+	background: var(--np-color-outline-variant);
+}
+.bar.s > span {
+	transform-origin: left center;
+}
+body.intro .bar.s > span {
+	animation: bar-in 0.6s var(--np-motion-expressive-default-spatial) both;
+}
+@keyframes bar-in {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+/* SVG dots are positioned with a transform attribute; only fade them in, once on load. */
+body.intro .chart svg g > path {
+	animation: point-in 0.45s var(--np-motion-expressive-default-spatial) both;
+}
+@keyframes point-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+tbody tr {
+	transition: background-color var(--np-motion-expressive-fast-effects);
+}
+tbody tr:hover {
+	background-color: color-mix(in srgb, var(--np-color-on-surface) 6%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+	body.intro .chart svg g > path,
+	body.intro .bar.s > span,
+	tbody tr {
+		animation: none;
+		transition: none;
+		transform: none;
+	}
+}

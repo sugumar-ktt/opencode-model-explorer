@@ -1,18 +1,14 @@
-// Endpoints and fixed product data. No credentials are required.
+import type { BadgeKey, Column } from "./types";
 
 export const API = {
 	models: "https://opencode.ai/inference/go/v1/models",
 };
 
 export const REQUEST_TIMEOUT_MS = 12000;
+export const OPENCODE_DATA_URL = "/data/opencode-scores.json";
 
-// Snapshot written by `bun scripts/fetch-opencode-data.ts`. OpenCode Data has
-// no CORS headers, so the explorer loads it from its own origin.
-export const OPENCODE_DATA_URL = "./data/opencode-scores.json";
-
-// The only Score formula: Coding and Tool use carry 30% each, the other four
-// aspects make up the remaining 40%.
-export const SCORE_WEIGHTS = {
+// The only Score formula: Coding and Tool use carry 30% each.
+export const SCORE_WEIGHTS: Record<string, number> = {
 	reasoning: 15,
 	coding: 30,
 	costEfficiency: 10,
@@ -21,15 +17,14 @@ export const SCORE_WEIGHTS = {
 	toolUse: 30,
 };
 
-// A model is "new" for this many days after its release date.
 export const NEW_MODEL_DAYS = 14;
 
-export const BADGES = {
+export const BADGES: Record<BadgeKey, string> = {
 	new: "New",
 	limited: "Limited-time",
 };
 
-export const COLUMNS = [
+export const COLUMNS: Column[] = [
 	{ key: "model", label: "Model", type: "text", align: "left" },
 	{
 		key: "score",
@@ -62,14 +57,9 @@ export const COLUMNS = [
 	},
 ];
 
-// The OpenCode console estimates 5h request allowances from the monthly
-// allowance and a typical token mix. Every Go tier spends 20% of its paid
-// period in the first five hours, so the ratio is shared.
 export const FIVE_HOUR_RATIO = 0.2;
 
-// Typical per-request token mix per model, mirroring the console. Unknown
-// models fall back to DEFAULT_TOKEN_MIX. Update alongside new model releases.
-export const TOKEN_MIX = {
+export const TOKEN_MIX: Record<string, { input: number; cached: number; output: number }> = {
 	"grok-4.7": { input: 390, cached: 32500, output: 120 },
 	"glm-5.3-flash": { input: 1000, cached: 55000, output: 200 },
 	"glm-5.3": { input: 700, cached: 52000, output: 150 },
@@ -94,9 +84,9 @@ export const TOKEN_MIX = {
 	"qwen3.8-max": { input: 420, cached: 66000, output: 200 },
 	"qwen3.8-flash": { input: 600, cached: 58000, output: 200 },
 	"qwen3.7-plus": { input: 500, cached: 57000, output: 190 },
-	"hy4": { input: 830, cached: 71500, output: 295 },
+	hy4: { input: 830, cached: 71500, output: 295 },
 	"hy4-preview": { input: 830, cached: 71500, output: 295 },
-	"hy3": { input: 830, cached: 71500, output: 295 },
+	hy3: { input: 830, cached: 71500, output: 295 },
 };
 
 export const DEFAULT_TOKEN_MIX = { input: 800, cached: 65000, output: 250 };

@@ -265,9 +265,9 @@ async function main() {
 		throw new Error(`Missing aspect scores for: ${missing.join(", ")}${failures.length ? `\n${failures.join("\n")}` : ""}`);
 	}
 
-	const output = new URL("../data/opencode-scores.json", import.meta.url);
+	const output = new URL("../public/data/opencode-scores.json", import.meta.url);
 	await Bun.write(output, `${JSON.stringify(snapshot, null, 2)}\n`);
-	console.log(`Wrote data/opencode-scores.json · ${loaded.length} models · updated ${snapshot.updatedAt}`);
+	console.log(`Wrote public/data/opencode-scores.json · ${loaded.length} models · updated ${snapshot.updatedAt}`);
 }
 
 await main();
